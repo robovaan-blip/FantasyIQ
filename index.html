@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>FantasyIQ | Fantasy Football</title>
+
+<style>
+
+*{box-sizing:border-box}
+
+body{margin:0;background:#080d18;color:#f4f7fc;font-family:Arial,sans-serif}
+
+header{background:#111a2b;padding:22px 5%;border-bottom:1px solid #263650}
+
+.logo{font-size:30px;font-weight:900}
+
+.logo span{color:#20d695}
+
+.tag{color:#9baac0;font-size:11px;margin-top:5px}
+
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:15px 5%;background:#101827}
+
+button{background:#18243a;color:white;border:1px solid #30415e;border-radius:8px;padding:11px 14px;cursor:pointer}
+
+button.active,.primary{background:#3985ff;border-color:#3985ff}
+
+main{max-width:1100px;margin:auto;padding:25px 5%}
+
+h1{font-size:30px;margin:8px 0}
+
+h2{font-size:20px}
+
+p{color:#9baac0;line-height:1.5}
+
+.section{display:none}
+
+.section.active{display:block}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin:22px 0}
+
+.card{background:#111a2b;border:1px solid #263650;border-radius:13px;padding:20px}
+
+.metric{font-size:30px;color:#20d695;font-weight:bold;margin:12px 0}
+
+label{display:block;color:#9baac0;font-size:13px;margin:15px 0 7px}
+
+select,input{width:100%;padding:12px;background:#0b1423;color:white;border:1px solid #30415e;border-radius:8px}
+
+.primary{width:100%;margin-top:16px;font-weight:bold}
+
+.result{background:#0b1423;border:1px solid #30415e;border-radius:10px;padding:15px;margin-top:16px;line-height:1.6}
+
+.small{font-size:12px;color:#9baac0}
+
+.good{color:#20d695}
+
+footer{text-align:center;color:#9baac0;padding:30px;font-size:12px}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Fantasy<span>IQ</span></div>
+
+<div class="tag">YOUR FANTASY FOOTBALL EDGE</div>
+
+</header>
+
+<nav>
+
+<button class="active" onclick="show('home',this)">Home</button>
+
+<button onclick="show('trade',this)">Trade Analyzer</button>
+
+<button onclick="show('start',this)">Start / Sit</button>
+
+<button onclick="show('compare',this)">Compare</button>
+
+<button onclick="show('team',this)">My Team</button>
+
+<button onclick="show('players',this)">Players</button>
+
+</nav>
+
+<main>
+
+<section id="home" class="section active">
+
+<p class="small">WELCOME TO FANTASYIQ</p>
+
+<h1>Make smarter fantasy decisions.</h1>
+
+<p>Your fantasy football command center. Analyze trades, compare players, and build your lineup.</p>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="small">TRADE CENTER</div>
+
+<div class="metric">⇄</div>
+
+<h2>Trade Analyzer</h2>
+
+<p>Compare the value of players in a trade.</p>
+
+<button class="primary" onclick="show('trade')">Analyze a trade</button>
+
+</div>
+
+<div class="card">
+
+<div class="small">LINEUP DECISIONS</div>
+
+<div class="metric">🏈</div>
+
+<h2>Start / Sit</h2>
+
+<p>Compare two players for your lineup.</p>
+
+<button class="primary" onclick="show('start')">Make a decision</button>
+
+</div>
+
+<div class="card">
+
+<div class="small">PLAYER DATABASE</div>
+
+<div class="metric">📊</div>
+
+<h2>Player Comparison</h2>
+
+<p>Compare fantasy players side by side.</p>
+
+<button class="primary" onclick="show('compare')">Compare players</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- MORE SECTIONS WILL BE ADDED IN PART 2 -->
+
+</main>
+
+<footer>FantasyIQ • Fantasy football made smarter</footer>
+<section id="trade" class="section">
+
+<h1>Trade Analyzer</h1>
+
+<p>Compare the fantasy value of players you're giving and receiving.</p>
+
+<div class="card">
+
+<label>Players YOU receive</label>
+
+<input id="receive" placeholder="Example: Ja'Marr Chase, CMC">
+
+<label>Players YOU give away</label>
+
+<input id="give" placeholder="Example: Justin Jefferson">
+
+<button class="primary" onclick="analyzeTrade()">Analyze Trade</button>
+
+<div id="tradeResult" class="result">Your trade evaluation will appear here.</div>
+
+</div>
+
+</section>
+
+<section id="start" class="section">
+
+<h1>Start / Sit Assistant</h1>
+
+<p>Choose two players to compare.</p>
+
+<div class="card">
+
+<label>Player 1</label>
+
+<input id="start1" placeholder="Player name">
+
+<label>Player 2</label>
+
+<input id="start2" placeholder="Player name">
+
+<button class="primary" onclick="startSit()">Compare Players</button>
+
+<div id="startResult" class="result">Your recommendation will appear here.</div>
+
+</div>
+
+</section>
+
+<section id="compare" class="section">
+
+<h1>Player Comparison</h1>
+
+<p>Compare players side by side.</p>
+
+<div class="card">
+
+<label>First player</label>
+
+<input id="compare1" placeholder="Player name">
+
+<label>Second player</label>
+
+<input id="compare2" placeholder="Player name">
+
+<button class="primary" onclick="comparePlayers()">Compare</button>
+
+<div id="compareResult" class="result">Player comparison will appear here.</div>
+
+</div>
+
+</section>
+
+<section id="team" class="section">
+
+<h1>My Team</h1>
+
+<p>Build and save your fantasy roster on this device.</p>
+
+<div class="card">
+
+<label>Add a player</label>
+
+<input id="teamPlayer" placeholder="Enter player name">
+
+<button class="primary" onclick="addPlayer()">Add to My Team</button>
+
+<div id="teamList" class="result">Your roster is empty.</div>
+
+</div>
+
+</section>
+
+<section id="players" class="section">
+
+<h1>Player Directory</h1>
+
+<p>Search the sample player directory.</p>
+
+<div class="card">
+
+<label>Search players</label>
+
+<input id="playerSearch" placeholder="Search NFL players..." oninput="searchPlayers()">
+
+<div id="playerResults" class="result"></div>
+
+
+<script>
+
+const samplePlayers = [
+
+{name:"Christian McCaffrey",pos:"RB"},
+
+{name:"Ja'Marr Chase",pos:"WR"},
+
+{name:"Justin Jefferson",pos:"WR"},
+
+{name:"Lamar Jackson",pos:"QB"},
+
+{name:"Josh Allen",pos:"QB"},
+
+{name:"Jalen Hurts",pos:"QB"},
+
+{name:"Saquon Barkley",pos:"RB"},
+
+{name:"Bijan Robinson",pos:"RB"},
+
+{name:"Derrick Henry",pos:"RB"},
+
+{name:"CeeDee Lamb",pos:"WR"},
+
+{name:"Amon-Ra St. Brown",pos:"WR"},
+
+{name:"Puka Nacua",pos:"WR"},
+
+{name:"Tyreek Hill",pos:"WR"},
+
+{name:"Travis Kelce",pos:"TE"},
+
+{name:"Trey McBride",pos:"TE"},
+
+{name:"Brock Bowers",pos:"TE"},
+
+{name:"Patrick Mahomes",pos:"QB"},
+
+{name:"Joe Burrow",pos:"QB"},
+
+{name:"Drake London",pos:"WR"},
+
+{name:"Malik Nabers",pos:"WR"}
+
+];
+
+function show(id,btn){
+
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+
+document.getElementById(id).classList.add('active');
+
+document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+
+if(btn)btn.classList.add('active');
+
+}
+
+function evaluateName(name){
+
+let p=samplePlayers.find(x=>x.name.toLowerCase()===name.trim().toLowerCase());
+
+return p ? p : {name:name.trim(),pos:"Unknown"};
+
+}
+
+function analyzeTrade(){
+
+let receive=document.getElementById('receive').value.trim();
+
+let give=document.getElementById('give').value.trim();
+
+let out=document.getElementById('tradeResult');
+
+if(!receive||!give){out.innerHTML="Enter players on both sides first.";return;}
+
+out.innerHTML="<b>Trade submitted!</b><br>You receive: "+receive+"<br>You give: "+give+"<br><br><span class='warning'>This first version does not have verified player projections or trade values yet. A reliable winner cannot be calculated from names alone.</span>";
+
+}
+
+function startSit(){
+
+let a=document.getElementById('start1').value.trim();
+
+let b=document.getElementById('start2').value.trim();
+
+let out=document.getElementById('startResult');
+
+if(!a||!b){out.innerHTML="Enter two players first.";return;}
+
+out.innerHTML="<b>Comparison:</b><br>"+a+" vs "+b+"<br><br><span class='warning'>No verified projections are connected yet, so this version cannot responsibly choose a starter.</span>";
+
+}
+
+function comparePlayers(){
+
+let a=evaluateName(document.getElementById('compare1').value);
+
+let b=evaluateName(document.getElementById('compare2').value);
+
+let out=document.getElementById('compareResult');
+
+if(!a.name||!b.name){out.innerHTML="Enter two players first.";return;}
+
+out.innerHTML="<b>"+a.name+"</b> — "+a.pos+"<br><br><b>"+b.name+"</b> — "+b.pos+"<br><br>Player identities are shown where available. Live stats and projections are not connected yet.";
+
+}
+
+let roster=JSON.parse(localStorage.getItem('fantasyiq-roster')||'[]');
+
+function renderRoster(){
+
+let out=document.getElementById('teamList');
+
+if(!roster.length){out.innerHTML="Your roster is empty.";return;}
+
+out.innerHTML=roster.map((p,i)=>"<div style='padding:8px;border-bottom:1px solid #263650'>"+p+" <button onclick='removePlayer("+i+")'>Remove</button></div>").join('');
+
+}
+
+function addPlayer(){
+
+let input=document.getElementById('teamPlayer');
+
+let name=input.value.trim();
+
+if(!name)return;
+
+roster.push(name);
+
+localStorage.setItem('fantasyiq-roster',JSON.stringify(roster));
+
+input.value='';
+
+renderRoster();
+
+}
+
+function removePlayer(i){
+
+roster.splice(i,1);
+
+localStorage.setItem('fantasyiq-roster',JSON.stringify(roster));
+
+renderRoster();
+
+}
+
+function searchPlayers(){
+
+let q=document.getElementById('playerSearch').value.toLowerCase();
+
+let matches=samplePlayers.filter(p=>p.name.toLowerCase().includes(q));
+
+document.getElementById('playerResults').innerHTML=matches.length?
+
+matches.map(p=>"<div style='padding:8px;border-bottom:1px solid #263650'><b>"+p.name+"</b> — "+p.pos+"</div>").join(''):
+
+"No matching sample players found.";
