@@ -18,13 +18,11 @@ body{margin:0;background:#080d18;color:#f4f7fc;font-family:Arial,sans-serif}
 
 header{background:#111a2b;padding:22px 5%;border-bottom:1px solid #263650}
 
-.logo{font-size:30px;font-weight:900}
+.logo{font-size:30px;font-weight:900}.logo span{color:#20d695}
 
-.logo span{color:#20d695}
+.tag,.muted{color:#9baac0;font-size:12px}
 
-.tag{color:#9baac0;font-size:11px;margin-top:5px}
-
-nav{display:flex;gap:8px;flex-wrap:wrap;padding:15px 5%;background:#101827}
+nav{display:flex;gap:8px;flex-wrap:wrap;padding:14px 5%;background:#101827}
 
 button{background:#18243a;color:white;border:1px solid #30415e;border-radius:8px;padding:11px 14px;cursor:pointer}
 
@@ -38,27 +36,25 @@ h2{font-size:20px}
 
 p{color:#9baac0;line-height:1.5}
 
-.section{display:none}
-
-.section.active{display:block}
+.section{display:none}.section.active{display:block}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin:22px 0}
 
-.card{background:#111a2b;border:1px solid #263650;border-radius:13px;padding:20px}
+.card{background:#111a2b;border:1px solid #263650;border-radius:13px;padding:20px;margin:12px 0}
 
 .metric{font-size:30px;color:#20d695;font-weight:bold;margin:12px 0}
 
 label{display:block;color:#9baac0;font-size:13px;margin:15px 0 7px}
 
-select,input{width:100%;padding:12px;background:#0b1423;color:white;border:1px solid #30415e;border-radius:8px}
+input,select{width:100%;padding:12px;background:#0b1423;color:white;border:1px solid #30415e;border-radius:8px}
 
 .primary{width:100%;margin-top:16px;font-weight:bold}
 
-.result{background:#0b1423;border:1px solid #30415e;border-radius:10px;padding:15px;margin-top:16px;line-height:1.6}
+.result{background:#0b1423;border:1px solid #30415e;border-radius:10px;padding:15px;margin-top:16px;line-height:1.7;overflow-wrap:anywhere}
 
-.small{font-size:12px;color:#9baac0}
+.good{color:#20d695}.warning{color:#ffca65}
 
-.good{color:#20d695}
+.player{padding:12px 0;border-bottom:1px solid #263650;display:flex;justify-content:space-between;gap:10px}
 
 footer{text-align:center;color:#9baac0;padding:30px;font-size:12px}
 
@@ -70,25 +66,25 @@ footer{text-align:center;color:#9baac0;padding:30px;font-size:12px}
 
 <header>
 
-<div class="logo">Fantasy<span>IQ</span></div>
+ <div class="logo">Fantasy<span>IQ</span></div>
 
-<div class="tag">YOUR FANTASY FOOTBALL EDGE</div>
+ <div class="tag">YOUR FANTASY FOOTBALL EDGE</div>
 
 </header>
 
 <nav>
 
-<button class="active" onclick="show('home',this)">Home</button>
+ <button class="active" onclick="show('home',this)">Home</button>
 
-<button onclick="show('trade',this)">Trade Analyzer</button>
+ <button onclick="show('trade',this)">Trade Analyzer</button>
 
-<button onclick="show('start',this)">Start / Sit</button>
+ <button onclick="show('start',this)">Start / Sit</button>
 
-<button onclick="show('compare',this)">Compare</button>
+ <button onclick="show('compare',this)">Compare</button>
 
-<button onclick="show('team',this)">My Team</button>
+ <button onclick="show('team',this)">My Team</button>
 
-<button onclick="show('players',this)">Players</button>
+ <button onclick="show('players',this)">Players</button>
 
 </nav>
 
@@ -96,328 +92,320 @@ footer{text-align:center;color:#9baac0;padding:30px;font-size:12px}
 
 <section id="home" class="section active">
 
-<p class="small">WELCOME TO FANTASYIQ</p>
+ <p class="muted">WELCOME TO FANTASYIQ</p>
 
-<h1>Make smarter fantasy decisions.</h1>
+ <h1>Make smarter fantasy decisions.</h1>
 
-<p>Your fantasy football command center. Analyze trades, compare players, and build your lineup.</p>
+ <p>Your fantasy football command center. Analyze trades, compare players, and build your lineup.</p>
 
-<div class="grid">
+ <div class="grid">
 
-<div class="card">
+  <div class="card"><div class="muted">TRADE CENTER</div><div class="metric">⇄</div><h2>Trade Analyzer</h2><p>Compare the sample values of players in a trade.</p><button class="primary" onclick="show('trade')">Analyze a trade</button></div>
 
-<div class="small">TRADE CENTER</div>
+  <div class="card"><div class="muted">LINEUP DECISIONS</div><div class="metric">🏈</div><h2>Start / Sit</h2><p>Compare two players for your lineup.</p><button class="primary" onclick="show('start')">Make a decision</button></div>
 
-<div class="metric">⇄</div>
+  <div class="card"><div class="muted">PLAYER DATABASE</div><div class="metric">📊</div><h2>Player Comparison</h2><p>Compare players side by side.</p><button class="primary" onclick="show('compare')">Compare players</button></div>
 
-<h2>Trade Analyzer</h2>
+ </div>
 
-<p>Compare the value of players in a trade.</p>
-
-<button class="primary" onclick="show('trade')">Analyze a trade</button>
-
-</div>
-
-<div class="card">
-
-<div class="small">LINEUP DECISIONS</div>
-
-<div class="metric">🏈</div>
-
-<h2>Start / Sit</h2>
-
-<p>Compare two players for your lineup.</p>
-
-<button class="primary" onclick="show('start')">Make a decision</button>
-
-</div>
-
-<div class="card">
-
-<div class="small">PLAYER DATABASE</div>
-
-<div class="metric">📊</div>
-
-<h2>Player Comparison</h2>
-
-<p>Compare fantasy players side by side.</p>
-
-<button class="primary" onclick="show('compare')">Compare players</button>
-
-</div>
-
-</div>
+ <div class="card"><h2>About FantasyIQ</h2><p>This is the first working demo. Player values are illustrative only, not official rankings, live stats, or projections.</p></div>
 
 </section>
 
-<!-- MORE SECTIONS WILL BE ADDED IN PART 2 -->
-
-</main>
-
-<footer>FantasyIQ • Fantasy football made smarter</footer>
 <section id="trade" class="section">
 
-<h1>Trade Analyzer</h1>
+ <h1>Trade Analyzer</h1><p>Enter player names separated by commas.</p>
 
-<p>Compare the fantasy value of players you're giving and receiving.</p>
+ <div class="card">
 
-<div class="card">
+  <label>Players you receive</label><input id="receive" placeholder="Example: Ja'Marr Chase, CMC">
 
-<label>Players YOU receive</label>
+  <label>Players you give away</label><input id="give" placeholder="Example: Justin Jefferson">
 
-<input id="receive" placeholder="Example: Ja'Marr Chase, CMC">
+  <button class="primary" onclick="analyzeTrade()">Analyze Trade</button>
 
-<label>Players YOU give away</label>
+  <div id="tradeResult" class="result">Your trade evaluation will appear here.</div>
 
-<input id="give" placeholder="Example: Justin Jefferson">
-
-<button class="primary" onclick="analyzeTrade()">Analyze Trade</button>
-
-<div id="tradeResult" class="result">Your trade evaluation will appear here.</div>
-
-</div>
+ </div>
 
 </section>
 
 <section id="start" class="section">
 
-<h1>Start / Sit Assistant</h1>
+ <h1>Start / Sit Assistant</h1><p>Compare two players using the demo ratings.</p>
 
-<p>Choose two players to compare.</p>
+ <div class="card">
 
-<div class="card">
+  <label>Player 1</label><input id="start1" list="playersList" placeholder="Enter a player">
 
-<label>Player 1</label>
+  <label>Player 2</label><input id="start2" list="playersList" placeholder="Enter another player">
 
-<input id="start1" placeholder="Player name">
+  <button class="primary" onclick="startSit()">Compare Players</button>
 
-<label>Player 2</label>
+  <div id="startResult" class="result">Your recommendation will appear here.</div>
 
-<input id="start2" placeholder="Player name">
-
-<button class="primary" onclick="startSit()">Compare Players</button>
-
-<div id="startResult" class="result">Your recommendation will appear here.</div>
-
-</div>
+ </div>
 
 </section>
 
 <section id="compare" class="section">
 
-<h1>Player Comparison</h1>
+ <h1>Player Comparison</h1>
 
-<p>Compare players side by side.</p>
+ <div class="card">
 
-<div class="card">
+  <label>First player</label><input id="compare1" list="playersList" placeholder="Player name">
 
-<label>First player</label>
+  <label>Second player</label><input id="compare2" list="playersList" placeholder="Player name">
 
-<input id="compare1" placeholder="Player name">
+  <button class="primary" onclick="comparePlayers()">Compare</button>
 
-<label>Second player</label>
+  <div id="compareResult" class="result">Your comparison will appear here.</div>
 
-<input id="compare2" placeholder="Player name">
-
-<button class="primary" onclick="comparePlayers()">Compare</button>
-
-<div id="compareResult" class="result">Player comparison will appear here.</div>
-
-</div>
+ </div>
 
 </section>
 
 <section id="team" class="section">
 
-<h1>My Team</h1>
+ <h1>My Team</h1><p>Build a roster saved on this device.</p>
 
-<p>Build and save your fantasy roster on this device.</p>
+ <div class="card">
 
-<div class="card">
+  <label>Add a player</label><input id="teamPlayer" list="playersList" placeholder="Enter player name">
 
-<label>Add a player</label>
+  <button class="primary" onclick="addPlayer()">Add to My Team</button>
 
-<input id="teamPlayer" placeholder="Enter player name">
+  <div id="teamList" class="result"></div>
 
-<button class="primary" onclick="addPlayer()">Add to My Team</button>
+  <button onclick="clearRoster()">Clear My Team</button>
 
-<div id="teamList" class="result">Your roster is empty.</div>
+  <div id="teamAnalysis" class="result"></div>
 
-</div>
+ </div>
 
 </section>
 
 <section id="players" class="section">
 
-<h1>Player Directory</h1>
+ <h1>Player Directory</h1><p>Search the included sample player list.</p>
 
-<p>Search the sample player directory.</p>
+ <div class="card">
 
-<div class="card">
+  <label>Search players</label><input id="playerSearch" placeholder="Search NFL players..." oninput="searchPlayers()">
 
-<label>Search players</label>
+  <div id="playerResults" class="result"></div>
 
-<input id="playerSearch" placeholder="Search NFL players..." oninput="searchPlayers()">
+ </div>
 
-<div id="playerResults" class="result"></div>
+</section>
 
+<datalist id="playersList"></datalist>
+
+</main>
+
+<footer>FantasyIQ • Fantasy football made smarter</footer>
 
 <script>
 
-const samplePlayers = [
+const players=[
 
-{name:"Christian McCaffrey",pos:"RB"},
+{name:"Christian McCaffrey",pos:"RB",value:95},
 
-{name:"Ja'Marr Chase",pos:"WR"},
+{name:"Ja'Marr Chase",pos:"WR",value:98},
 
-{name:"Justin Jefferson",pos:"WR"},
+{name:"Justin Jefferson",pos:"WR",value:97},
 
-{name:"Lamar Jackson",pos:"QB"},
+{name:"Lamar Jackson",pos:"QB",value:90},
 
-{name:"Josh Allen",pos:"QB"},
+{name:"Josh Allen",pos:"QB",value:96},
 
-{name:"Jalen Hurts",pos:"QB"},
+{name:"Jalen Hurts",pos:"QB",value:88},
 
-{name:"Saquon Barkley",pos:"RB"},
+{name:"Saquon Barkley",pos:"RB",value:92},
 
-{name:"Bijan Robinson",pos:"RB"},
+{name:"Bijan Robinson",pos:"RB",value:96},
 
-{name:"Derrick Henry",pos:"RB"},
+{name:"Derrick Henry",pos:"RB",value:85},
 
-{name:"CeeDee Lamb",pos:"WR"},
+{name:"CeeDee Lamb",pos:"WR",value:91},
 
-{name:"Amon-Ra St. Brown",pos:"WR"},
+{name:"Amon-Ra St. Brown",pos:"WR",value:90},
 
-{name:"Puka Nacua",pos:"WR"},
+{name:"Puka Nacua",pos:"WR",value:94},
 
-{name:"Tyreek Hill",pos:"WR"},
+{name:"Tyreek Hill",pos:"WR",value:84},
 
-{name:"Travis Kelce",pos:"TE"},
+{name:"Travis Kelce",pos:"TE",value:75},
 
-{name:"Trey McBride",pos:"TE"},
+{name:"Trey McBride",pos:"TE",value:89},
 
-{name:"Brock Bowers",pos:"TE"},
+{name:"Brock Bowers",pos:"TE",value:93},
 
-{name:"Patrick Mahomes",pos:"QB"},
+{name:"Patrick Mahomes",pos:"QB",value:82},
 
-{name:"Joe Burrow",pos:"QB"},
+{name:"Joe Burrow",pos:"QB",value:87},
 
-{name:"Drake London",pos:"WR"},
+{name:"Drake London",pos:"WR",value:88},
 
-{name:"Malik Nabers",pos:"WR"}
+{name:"Malik Nabers",pos:"WR",value:92},
+
+{name:"Tee Higgins",pos:"WR",value:80},
+
+{name:"Jonathan Taylor",pos:"RB",value:89},
+
+{name:"Jahmyr Gibbs",pos:"RB",value:95},
+
+{name:"De'Von Achane",pos:"RB",value:91},
+
+{name:"Kenneth Walker",pos:"RB",value:79},
+
+{name:"DK Metcalf",pos:"WR",value:78},
+
+{name:"Mike Evans",pos:"WR",value:81},
+
+{name:"George Kittle",pos:"TE",value:86},
+
+{name:"Sam LaPorta",pos:"TE",value:78}
 
 ];
 
 function show(id,btn){
 
-document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+ document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
 
-document.getElementById(id).classList.add('active');
+ document.getElementById(id).classList.add('active');
 
-document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
 
-if(btn)btn.classList.add('active');
+ if(btn)btn.classList.add('active');
 
 }
 
-function evaluateName(name){
+function findPlayer(name){
 
-let p=samplePlayers.find(x=>x.name.toLowerCase()===name.trim().toLowerCase());
+ return players.find(p=>p.name.toLowerCase()===name.trim().toLowerCase());
 
-return p ? p : {name:name.trim(),pos:"Unknown"};
+}
+
+function playerValue(name){
+
+ const p=findPlayer(name);
+
+ return p?p.value:50;
+
+}
+
+function playerInfo(name){
+
+ const p=findPlayer(name);
+
+ return p? p.name+" ("+p.pos+")":"Unknown player: "+name;
 
 }
 
 function analyzeTrade(){
 
-let receive=document.getElementById('receive').value.trim();
+ const receive=document.getElementById('receive').value.split(',').map(x=>x.trim()).filter(Boolean);
 
-let give=document.getElementById('give').value.trim();
+ const give=document.getElementById('give').value.split(',').map(x=>x.trim()).filter(Boolean);
 
-let out=document.getElementById('tradeResult');
+ const out=document.getElementById('tradeResult');
 
-if(!receive||!give){out.innerHTML="Enter players on both sides first.";return;}
+ if(!receive.length||!give.length){out.textContent="Enter at least one player on each side.";return;}
 
-out.innerHTML="<b>Trade submitted!</b><br>You receive: "+receive+"<br>You give: "+give+"<br><br><span class='warning'>This first version does not have verified player projections or trade values yet. A reliable winner cannot be calculated from names alone.</span>";
+ let a=receive.reduce((s,n)=>s+playerValue(n),0);
+
+ let b=give.reduce((s,n)=>s+playerValue(n),0);
+
+ out.innerHTML="<b>You receive:</b> "+receive.map(playerInfo).join(", ")+"<br><b>You give:</b> "+give.map(playerInfo).join(", ")+"<hr><b>Demo value received:</b> "+a+"<br><b>Demo value given:</b> "+b+"<br><br><span class='warning'>"+(a>b?"The demo values favor what you receive.":a<b?"The demo values favor what you give away.":"The demo values are even.")+"</span><br><small>Illustrative values only. Not real rankings or a reliable trade verdict.</small>";
 
 }
 
 function startSit(){
 
-let a=document.getElementById('start1').value.trim();
+ const a=document.getElementById('start1').value.trim(),b=document.getElementById('start2').value.trim();
 
-let b=document.getElementById('start2').value.trim();
+ const out=document.getElementById('startResult');
 
-let out=document.getElementById('startResult');
+ if(!a||!b){out.textContent="Enter two players first.";return;}
 
-if(!a||!b){out.innerHTML="Enter two players first.";return;}
+ if(a.toLowerCase()===b.toLowerCase()){out.textContent="Choose two different players.";return;}
 
-out.innerHTML="<b>Comparison:</b><br>"+a+" vs "+b+"<br><br><span class='warning'>No verified projections are connected yet, so this version cannot responsibly choose a starter.</span>";
+ out.innerHTML="<b>"+playerInfo(a)+"</b> — demo value "+playerValue(a)+"<br><b>"+playerInfo(b)+"</b> — demo value "+playerValue(b)+"<br><br>"+(playerValue(a)>playerValue(b)?"The demo rating favors "+a+".":playerValue(a)<playerValue(b)?"The demo rating favors "+b+".":"The demo ratings are tied.")+"<br><small>Not a real start/sit projection. Check matchup, injuries, and weekly projections.</small>";
 
 }
 
 function comparePlayers(){
 
-let a=evaluateName(document.getElementById('compare1').value);
+ const a=document.getElementById('compare1').value.trim(),b=document.getElementById('compare2').value.trim();
 
-let b=evaluateName(document.getElementById('compare2').value);
+ const out=document.getElementById('compareResult');
 
-let out=document.getElementById('compareResult');
+ if(!a||!b){out.textContent="Enter two players first.";return;}
 
-if(!a.name||!b.name){out.innerHTML="Enter two players first.";return;}
-
-out.innerHTML="<b>"+a.name+"</b> — "+a.pos+"<br><br><b>"+b.name+"</b> — "+b.pos+"<br><br>Player identities are shown where available. Live stats and projections are not connected yet.";
+ out.innerHTML="<b>"+playerInfo(a)+"</b><br>Demo value: "+playerValue(a)+"<hr><b>"+playerInfo(b)+"</b><br>Demo value: "+playerValue(b)+"<hr>"+(playerValue(a)>playerValue(b)?a+" has the higher demo value.":playerValue(a)<playerValue(b)?b+" has the higher demo value.":"Both have the same demo value.")+"<br><small>These are sample values, not official player rankings.</small>";
 
 }
 
-let roster=JSON.parse(localStorage.getItem('fantasyiq-roster')||'[]');
+let roster=[];
 
-function renderRoster(){
+try{roster=JSON.parse(localStorage.getItem('fantasyiq-roster')||'[]');}catch(e){roster=[];}
 
-let out=document.getElementById('teamList');
-
-if(!roster.length){out.innerHTML="Your roster is empty.";return;}
-
-out.innerHTML=roster.map((p,i)=>"<div style='padding:8px;border-bottom:1px solid #263650'>"+p+" <button onclick='removePlayer("+i+")'>Remove</button></div>").join('');
-
-}
+function saveRoster(){localStorage.setItem('fantasyiq-roster',JSON.stringify(roster));}
 
 function addPlayer(){
 
-let input=document.getElementById('teamPlayer');
+ const input=document.getElementById('teamPlayer'),name=input.value.trim();
 
-let name=input.value.trim();
+ if(!name)return;
 
-if(!name)return;
+ if(roster.some(p=>p.toLowerCase()===name.toLowerCase())){alert("That player is already on your team.");return;}
 
-roster.push(name);
-
-localStorage.setItem('fantasyiq-roster',JSON.stringify(roster));
-
-input.value='';
-
-renderRoster();
+ roster.push(name);saveRoster();input.value="";renderRoster();
 
 }
 
-function removePlayer(i){
+function removePlayer(i){roster.splice(i,1);saveRoster();renderRoster();}
 
-roster.splice(i,1);
+function clearRoster(){if(confirm("Remove every player from your roster?")){roster=[];saveRoster();renderRoster();}}
 
-localStorage.setItem('fantasyiq-roster',JSON.stringify(roster));
+function renderRoster(){
 
-renderRoster();
+ const list=document.getElementById('teamList'),analysis=document.getElementById('teamAnalysis');
+
+ if(!roster.length){list.textContent="Your roster is empty.";analysis.textContent="Add players to see your roster breakdown.";return;}
+
+ list.innerHTML=roster.map((p,i)=>"<div class='player'><span>"+escapeText(p)+"</span><button onclick='removePlayer("+i+")'>Remove</button></div>").join('');
+
+ const counts={QB:0,RB:0,WR:0,TE:0,Unknown:0};
+
+ roster.forEach(n=>{const p=findPlayer(n);counts[p?p.pos:"Unknown"]++;});
+
+ analysis.innerHTML="<b>Roster breakdown</b><br>QBs: "+counts.QB+"<br>RBs: "+counts.RB+"<br>WRs: "+counts.WR+"<br>TEs: "+counts.TE+"<br>Not in sample directory: "+counts.Unknown;
 
 }
+
+function escapeText(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 
 function searchPlayers(){
 
-let q=document.getElementById('playerSearch').value.toLowerCase();
+ const q=document.getElementById('playerSearch').value.toLowerCase();
 
-let matches=samplePlayers.filter(p=>p.name.toLowerCase().includes(q));
+ const matches=players.filter(p=>p.name.toLowerCase().includes(q)||p.pos.toLowerCase().includes(q));
 
-document.getElementById('playerResults').innerHTML=matches.length?
+ document.getElementById('playerResults').innerHTML=matches.length?matches.map(p=>"<div class='player'><span><b>"+p.name+"</b><br><small>"+p.pos+"</small></span><span>"+p.value+" demo</span></div>").join(''):"No matching players found.";
 
-matches.map(p=>"<div style='padding:8px;border-bottom:1px solid #263650'><b>"+p.name+"</b> — "+p.pos+"</div>").join(''):
+}
 
-"No matching sample players found.";
+document.getElementById('playersList').innerHTML=players.map(p=>"<option value='"+p.name.replace(/'/g,"&#39;")+"'>").join('');
+
+renderRoster();
+
+searchPlayers();
+
+</script>
+
+</body>
+
+</html>
